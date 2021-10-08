@@ -1,0 +1,17 @@
+{
+  "$schema": "https://x.nest.land/eggs@0.3.9/src/schema.json",
+  "name": "atrace",
+  "entry": "./mod.ts",
+  "description": "🔎  Trace back the scene from an anime screenshot.",
+  "homepage": "https://github.com/UltiRequiem/deno-",
+  "version": "0.0.0",
+  "releaseType": "patch",
+  "unstable": false,
+  "unlisted": false,
+  "files": ["mod.ts", "cli.ts", "README.md"],
+  "ignore": [".vim", ".github", ".git"],
+  "checkFormat": "deno fmt",
+  "checkTests": "deno test",
+  "checkInstallation": true,
+  "check": true
+}
