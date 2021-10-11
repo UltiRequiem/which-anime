@@ -26,7 +26,10 @@ export function getFlags() {
   const { help, link, file } = parse(Deno.args);
 
   if (!help && !link && !file || help) {
-    console.log(blue("TODO"));
+    const HELP_MESSAGE = "";
+
+    console.log(help ? blue(HELP_MESSAGE) : red(HELP_MESSAGE));
+
     Deno.exit(help ? 0 : 1);
   }
 
