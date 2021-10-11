@@ -5,7 +5,7 @@ import type { Result } from "./types.ts";
 
 export const API_URL = "https://api.trace.moe/search?anilistInfo&url=";
 
-export const VERSION = "v1.0.0"
+export const VERSION = "v1.0.0";
 
 export function printInfo(data: Result) {
   console.log(`  
@@ -22,7 +22,17 @@ export function getFlags() {
   const { help, link, file } = parse(Deno.args);
 
   if (!help && !link && !file || help) {
-    const HELP_MESSAGE = "";
+    const HELP_MESSAGE = `  which-anime ${VERSION}
+
+  FLAGS:
+
+    --file: An Image path
+
+    --link: An Image link
+
+  If you need more help, found a bug or want to suggest a new feature:
+  github.com/UltiRequiem/which-anime
+  `;
 
     console.log(help ? blue(HELP_MESSAGE) : red(HELP_MESSAGE));
 
