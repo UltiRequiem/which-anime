@@ -5,19 +5,17 @@ import type { Result } from "./types.ts";
 
 export const API_URL = "https://api.trace.moe/search?anilistInfo&url=";
 
+export const VERSION = "v1.0.0"
+
 export function printInfo(data: Result) {
   console.log(`  
+🌸 Title Native: ${data.anilist.title.native}
+🗻 Title Romaji: ${data.anilist.title.romaji}
+🗽 Title English: ${data.anilist.title.english}
 
-  🌸 Title Native: ${data.anilist.title.native}
-  🗻 Title Romaji: ${data.anilist.title.romaji}
-  🗽 Title English: ${data.anilist.title.english}
+💠 Anilist ID: ${data.anilist.id}
 
-  💠 Anilist ID: ${data.anilist.id}
-
-  ⌚ Scene From: ${data.from}
-  ⌚ Scene To: ${data.to}
-
-  🍓 Is Adult: ${data.anilist.isAdult}`);
+🍓 Is Adult: ${data.anilist.isAdult}`);
 }
 
 export function getFlags() {

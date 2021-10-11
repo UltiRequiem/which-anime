@@ -1,8 +1,7 @@
 import { getFlags } from "./src/utils.ts";
-import byFile from "./src/byFile.ts";
-import byURL from "./src/byURL.ts";
+import { byFile, byURL } from "./src/mod.ts";
 
-import Kia from "https://raw.githubusercontent.com/HarryPeach/kia/master/mod.ts";
+import Kia from "https://denopkg.com/HarryPeach/kia/mod.ts";
 
 async function Main() {
   const [link, file] = getFlags();
@@ -11,16 +10,11 @@ async function Main() {
     link ? "  Searching for the anime..." : "  Uploading File...",
   );
 
-  if (link) {
-    kia.start();
-    await byURL(link);
-    kia.succeed("Done!");
-    return;
-  }
-
   kia.start();
-  await byFile(file);
-  kia.succeed("  Done!");
+
+  await (file ? byFile(file) : byURL(link));
+
+  kia.succeed("Done!");
 }
 
 await Main();
