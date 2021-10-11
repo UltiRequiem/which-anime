@@ -4,7 +4,9 @@ import { blue, red } from "https://deno.land/std@0.110.0/fmt/colors.ts";
 import type { Result } from "./types.ts";
 
 export function printInfo(data: Result) {
-  const INFO = `  🌸 Title Native: ${data.anilist.title.native}
+  const INFO = `  
+
+  🌸 Title Native: ${data.anilist.title.native}
   🗻 Title Romaji: ${data.anilist.title.romaji}
   🗽 Title English: ${data.anilist.title.english}
 
@@ -31,5 +33,5 @@ export function getFlags() {
     Deno.exit(1);
   }
 
-  return [link, file];
+  return [link as string, file as string];
 }
