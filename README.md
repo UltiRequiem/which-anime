@@ -12,6 +12,40 @@ You can get this package by [nest.land](https://nest.land/package/anime),
 [deno.land](https://deno.land/x/anime) or
 [denopkg](https://denopkg.com/UltiRequiem/which-anime/mod.ts).
 
+## Usage
+
+Using Links:
+
+```bash
+which-anime --link https://github.com/UltiRequiem/which-anime/blob/main/image.jpg
+
+⠦   Searching for the anime...
+🌸 Title Native: 青春ブタ野郎はバニーガール先輩の夢を見ない
+🗻 Title Romaji: Seishun Buta Yarou wa Bunny Girl Senpai no Yume wo Minai
+🗽 Title English: Rascal Does Not Dream of Bunny Girl Senpai
+
+💠 Anilist ID: 101291
+
+🍓 Is Adult: false
+√ Done!
+```
+
+Using File:
+
+```bash
+which-anime --file ./image.jpg
+
+⠧   Uploading File...
+🌸 Title Native: 青春ブタ野郎はバニーガール先輩の夢を見ない
+🗻 Title Romaji: Seishun Buta Yarou wa Bunny Girl Senpai no Yume wo Minai
+🗽 Title English: Rascal Does Not Dream of Bunny Girl Senpai
+
+💠 Anilist ID: 101291
+
+🍓 Is Adult: false
+√ Done!
+```
+
 ## Installation
 
 - [deno.land/x](https://deno.land/x/anime/cli.ts):
@@ -41,25 +75,19 @@ yarn global add @ultirequiem/anime # npm i -g @ultirequiem/anime
 
 ### Built in help
 
-If yoy don't pass any flag or you pass the `--help` flag:
+If you don't pass any flag or you pass the `--help` flag:
 
 ```
-y2j 1.0.0
+  which-anime v1.0.0
 
-    Convert JSON to YAML and vice versa
+  FLAGS:
 
-    FLAGS:
+    --file: An Image path
 
-      --file: The file to change the format, if you pass a JSON,
-      its YAML version will be printed on the screen and vice versa.
+    --link: An Image link
 
-      --write: If you pass this flag instead of printing on the screen,
-      the output will be written to a file.
-
-      --version: Prints just the version
-
-    If you need more help, found a bug or want to suggest a new feature:
-    github.com/UltiRequiem/y2j
+  If you need more help, found a bug or want to suggest a new feature:
+  github.com/UltiRequiem/which-anime
 ```
 
 ### License
