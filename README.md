@@ -17,7 +17,7 @@ You can get this package by [nest.land](https://nest.land/package/anime),
 Using Links:
 
 ```bash
-which-anime --link https://github.com/UltiRequiem/which-anime/blob/main/image.jpg
+which-anime --link https://raw.githubusercontent.com/UltiRequiem/which-anime/main/image.jpg
 
 ⠦   Searching for the anime...
 🌸 Title Native: 青春ブタ野郎はバニーガール先輩の夢を見ない
