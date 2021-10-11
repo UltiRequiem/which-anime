@@ -1,7 +1,5 @@
 import type { Response } from "./types.ts";
-import { printInfo } from "./utils.ts";
-
-const API_URL = "https://api.trace.moe/search?anilistInfo&url=";
+import { API_URL, printInfo } from "./utils.ts";
 
 export default async function byFile(fileName: string) {
   const request = await fetch(API_URL, {

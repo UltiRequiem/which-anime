@@ -3,6 +3,8 @@ import { blue, red } from "https://deno.land/std@0.110.0/fmt/colors.ts";
 
 import type { Result } from "./types.ts";
 
+export const API_URL = "https://api.trace.moe/search?anilistInfo&url=";
+
 export function printInfo(data: Result) {
   const INFO = `  
 
