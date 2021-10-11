@@ -6,7 +6,7 @@ import type { Result } from "./types.ts";
 export const API_URL = "https://api.trace.moe/search?anilistInfo&url=";
 
 export function printInfo(data: Result) {
-  const INFO = `  
+  console.log(`  
 
   🌸 Title Native: ${data.anilist.title.native}
   🗻 Title Romaji: ${data.anilist.title.romaji}
@@ -17,9 +17,7 @@ export function printInfo(data: Result) {
   ⌚ Scene From: ${data.from}
   ⌚ Scene To: ${data.to}
 
-  🍓 Is Adult: ${data.anilist.isAdult}`;
-
-  console.log(INFO);
+  🍓 Is Adult: ${data.anilist.isAdult}`);
 }
 
 export function getFlags() {
