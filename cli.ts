@@ -29,8 +29,17 @@ async function main() {
   const [link, file] = getFlags();
 
   if (link) {
+    try {
+      new URL(link);
+    } catch (_) {
+      console.log("That is not a valid URL.");
+      return;
+    }
+
     const request = await fetch(
-      `https://api.trace.moe/search?url=${encodeURIComponent(link)}`,
+      `https://api.trace.moe/search?anilistInfo&url=${
+        encodeURIComponent(link)
+      }`,
     );
 
     // Pass to external Type
@@ -38,7 +47,7 @@ async function main() {
       frameCount: number;
       eror: string;
       result: {
-        anilist: number;
+        anilist: any;
         filename: string;
         episode: 1;
         from: number;
@@ -50,7 +59,19 @@ async function main() {
     } = await request
       .json();
 
-    console.log(data.result[0]);
+    console.log(data.result[0].anilist.title.native);
+    console.log(data.result[0].anilist.title.romaji);
+    console.log(data.result[0].anilist.title.english);
+    console.log(data.result[0].anilist.id);
+
+    console.log(data.result[0].episode);
+
+    console.log(data.result[0].episode);
+
+    console.log(data.result[0].anilist.isAdult);
+
+    // console.log(data.result[0])
+
   }
 
   if (file) {
