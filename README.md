@@ -63,14 +63,7 @@ deno install --allow-read --allow-net https://denopkg.com/UltiRequiem/anime/cli.
 - [nest.land](https://x.nest.land/anime/cli.ts):
 
 ```bash
-deno install --allow-read --allow-net https://x.nest.land/anime@1.0.0/mod.ts
-```
-
-If you dont have installed Deno but
-[Node](https://www.npmjs.com/package/@ultirequiem/anime):
-
-```bash
-yarn global add @ultirequiem/anime # npm i -g @ultirequiem/anime
+deno install --allow-read --allow-net https://x.nest.land/anime@0.0.2/mod.ts
 ```
 
 ### Built in help
@@ -78,7 +71,7 @@ yarn global add @ultirequiem/anime # npm i -g @ultirequiem/anime
 If you don't pass any flag or you pass the `--help` flag:
 
 ```
-  which-anime v1.0.0
+which-anime v1.0.0
 
   FLAGS:
 
