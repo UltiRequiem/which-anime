@@ -51,19 +51,19 @@ which-anime --file ./image.jpg
 - [deno.land/x](https://deno.land/x/anime/cli.ts):
 
 ```bash
-deno install --allow-read --allow-net https://deno.land/x/anime/cli.ts
+deno install --allow-read --allow-net -n which-anime https://deno.land/x/anime/cli.ts
 ```
 
 - [denopkg.com](https://denopkg.com/UltiRequiem/anime/cli.ts):
 
 ```bash
-deno install --allow-read --allow-net https://denopkg.com/UltiRequiem/anime/cli.ts
+deno install --allow-read --allow-net -n which-anime https://denopkg.com/UltiRequiem/anime/cli.ts
 ```
 
 - [nest.land](https://x.nest.land/anime/cli.ts):
 
 ```bash
-deno install --allow-read --allow-net https://x.nest.land/anime@0.0.2/mod.ts
+deno install --allow-read --allow-net -n which-anime https://x.nest.land/anime@0.0.2/mod.ts
 ```
 
 ### Built in help
