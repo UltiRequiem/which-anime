@@ -5,7 +5,6 @@ import Kia from "https://denopkg.com/HarryPeach/kia/mod.ts";
 import type { Result } from "./types.ts";
 
 export const API_URL = "https://api.trace.moe/search?anilistInfo&url=";
-
 export const VERSION = "v1.0.0";
 
 export function spinner(link: string) {
@@ -23,13 +22,8 @@ export function printInfo(data: Result) {
 🍓 Is Adult: ${data.anilist.isAdult}`);
 }
 
-export function getFlags() {
-  const { help, version, link, file } = parse(Deno.args, {
-    alias: { help: "h", version: "v", link: "l", file: "f" },
-  });
-
-  if ((!link && !file) || help) {
-    const HELP_MESSAGE = `  which-anime ${VERSION}
+function printHelp(help: boolean) {
+  const HELP_MESSAGE = `  which-anime ${VERSION}
 
   FLAGS:
 
@@ -41,14 +35,22 @@ export function getFlags() {
   github.com/UltiRequiem/which-anime
   `;
 
-    console.log(help ? blue(HELP_MESSAGE) : red(HELP_MESSAGE));
+  console.log(help ? blue(HELP_MESSAGE) : red(HELP_MESSAGE));
 
-    Deno.exit(help ? 0 : 1);
-  }
+  Deno.exit(help ? 0 : 1);
+}
 
-  if (version) {
-    console.log(blue(`  which-anime ${VERSION}`));
-  }
+function printVersion() {
+  console.log(blue(`  which-anime ${VERSION}`));
+}
+
+export function getFlags() {
+  const { help, version, link, file } = parse(Deno.args, {
+    alias: { help: "h", version: "v", link: "l", file: "f" },
+  });
+
+  if ((!link && !file) || help) printHelp(help);
+  if (version) printVersion();
 
   if (link && file) {
     console.log(red("You cannot pass the link and file flags together!"));
