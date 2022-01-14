@@ -1,18 +1,18 @@
-export type Anilist = {
+export interface Anilist {
   id: number;
   idMal: number;
   title: Title;
   synonym: string;
   isAdult: boolean;
-};
+}
 
-export type Title = {
+export interface Title {
   native: string;
   romaji: string;
   english: string;
-};
+}
 
-export type Result = {
+export interface Result {
   anilist: Anilist;
   filename: string;
   episode: number;
@@ -21,10 +21,10 @@ export type Result = {
   similarity: number;
   video: string;
   image: string;
-};
+}
 
-export type Response = {
+export interface AnimeResponse {
   frameCount: number;
   errors: string;
   result: Result[];
-};
+}

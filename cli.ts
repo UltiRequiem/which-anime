@@ -1,20 +1,12 @@
-import { getFlags } from "./src/utils.ts";
+import { getFlags, spinner } from "./src/utils.ts";
 import { byFile, byURL } from "./src/mod.ts";
 
-import Kia from "https://denopkg.com/HarryPeach/kia/mod.ts";
+const [link, file] = getFlags();
 
-async function Main() {
-  const [link, file] = getFlags();
+const kia = spinner(link);
 
-  const kia = new Kia(
-    link ? "  Searching for the anime..." : "  Uploading File...",
-  );
+kia.start();
 
-  kia.start();
+await (file ? byFile(file) : byURL(link));
 
-  await (file ? byFile(file) : byURL(link));
-
-  kia.succeed("Done!");
-}
-
-await Main();
+kia.succeed("Done!");

@@ -1,11 +1,16 @@
 import { parse } from "https://deno.land/std@0.110.0/flags/mod.ts";
 import { blue, red } from "https://deno.land/std@0.110.0/fmt/colors.ts";
+import Kia from "https://denopkg.com/HarryPeach/kia/mod.ts";
 
 import type { Result } from "./types.ts";
 
 export const API_URL = "https://api.trace.moe/search?anilistInfo&url=";
 
 export const VERSION = "v1.0.0";
+
+export function spinner(link: string) {
+  return new Kia(link ? "  Searching for the anime..." : "  Uploading File...");
+}
 
 export function printInfo(data: Result) {
   console.log(`  
@@ -19,9 +24,11 @@ export function printInfo(data: Result) {
 }
 
 export function getFlags() {
-  const { help, link, file } = parse(Deno.args);
+  const { help, version, link, file } = parse(Deno.args, {
+    alias: { help: "h", version: "v", link: "l", file: "f" },
+  });
 
-  if (!help && !link && !file || help) {
+  if ((!link && !file) || help) {
     const HELP_MESSAGE = `  which-anime ${VERSION}
 
   FLAGS:
@@ -37,6 +44,10 @@ export function getFlags() {
     console.log(help ? blue(HELP_MESSAGE) : red(HELP_MESSAGE));
 
     Deno.exit(help ? 0 : 1);
+  }
+
+  if (version) {
+    console.log(blue(`  which-anime ${VERSION}`));
   }
 
   if (link && file) {

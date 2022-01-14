@@ -1,4 +1,4 @@
-import type { Response } from "./types.ts";
+import type { AnimeResponse } from "./types.ts";
 import { API_URL, printInfo } from "./utils.ts";
 
 export async function byURL(link: string) {
@@ -11,7 +11,7 @@ export async function byURL(link: string) {
 
   const request = await fetch(API_URL + encodeURIComponent(link));
 
-  const data: Response = await request.json();
+  const data: AnimeResponse = await request.json();
 
   printInfo(data.result[0]);
 }
@@ -23,7 +23,7 @@ export async function byFile(fileName: string) {
     headers: { "Content-type": "image/jpeg" },
   });
 
-  const data: Response = await request.json();
+  const data: AnimeResponse = await request.json();
 
   printInfo(data.result[0]);
 }
